@@ -12,7 +12,7 @@ steps:
     working_directory: ./
     dockerfile: Dockerfile
     build_arguments:
-      - HELM_VERSION=2.14.3
+      - HELM_VERSION=2.16.5
       - HELMFILE_VERSION=${{HELMFILE_VERSION}}
       - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
       - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
@@ -23,7 +23,7 @@ steps:
     working_directory: ./
     dockerfile: Dockerfile
     build_arguments:
-      - HELM_VERSION=3.0.0
+      - HELM_VERSION=3.1.2
       - HELMFILE_VERSION=${{HELMFILE_VERSION}}
       - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
       - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
@@ -32,7 +32,7 @@ steps:
     type: push
     candidate: ${{BuildingDockerImageHelm2}}
     tags:
-      - 2.14.3-${{HELMFILE_VERSION}}
+      - 2.16.5-${{HELMFILE_VERSION}}
     registry: dockerhub
     when:
       branch:
@@ -43,7 +43,7 @@ steps:
     type: push
     candidate: ${{BuildingDockerImageHelm3}}
     tags:
-      - 3.0.0-${{HELMFILE_VERSION}}
+      - 3.1.2-${{HELMFILE_VERSION}}
     registry: dockerhub
     when:
       branch:
