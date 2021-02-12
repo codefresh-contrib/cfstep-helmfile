@@ -56,7 +56,7 @@ def main():
     helm_version = env.get('HELM_VERSION', '2.0.0')
 
     if helm_version.startswith('2'):
-        print("\033[93mHelm 2 support will be deprecated soon\033[0m")
+        print("\033[93mmHelm 2 will be deprecated on July 16 2021 and will no longer be available\033[0m")
 
     # Combine Global Options
 
