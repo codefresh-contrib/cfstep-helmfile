@@ -53,6 +53,10 @@ def main():
     delete_ps = os.getenv('DELETE_PS')
     destroy_ps = os.getenv('DESTROY_PS')
     test_ps = os.getenv('TEST_PS')
+    helm_version = env.get('HELM_VERSION', '2.0.0')
+
+    if helm_version.startswith('2'):
+        print("\033[93mCodefresh will discontinue support for Helm 2 on July 16 2021\033[0m")
 
     # Combine Global Options
 
