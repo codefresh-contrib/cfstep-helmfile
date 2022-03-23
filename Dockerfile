@@ -23,6 +23,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_
 
 # Install python library
 RUN pip install --upgrade pip
+RUN pip install -U setuptools
 RUN pip install ruamel.yaml
 
 # Install helmfile
