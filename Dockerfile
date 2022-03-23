@@ -22,6 +22,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_
     helm plugin install https://github.com/futuresimple/helm-secrets --version ${HELM_SECRETS_VERSION}
 
 # Install python library
+RUN pip install --upgrade pip
 RUN pip install ruamel.yaml
 
 # Install helmfile
