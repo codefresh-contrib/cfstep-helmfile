@@ -14,6 +14,7 @@ RUN apk add --update \
     linux-headers \
     git \
     gcc \
+    build-base \
     python3 && \
     rm -rf /var/cache/apk/*
 
