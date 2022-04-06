@@ -23,8 +23,8 @@ RUN apk add --update \
 
 # Install helmfile plugin deps
 
-#RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
-RUN helm plugin install https://github.com/databus23/helm-diff
+RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
+    rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-d
 # RUN helm plugin install https://github.com/futuresimple/helm-secrets --version ${HELM_SECRETS_VERSION}
 
 # Install python library
