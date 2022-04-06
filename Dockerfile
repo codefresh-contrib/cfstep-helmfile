@@ -13,6 +13,7 @@ ARG PYTHON_VERSION
 RUN apk add --update \
     linux-headers \
     git \
+    gcc \
     python3 && \
     rm -rf /var/cache/apk/*
 
@@ -20,9 +21,6 @@ RUN apk add --update \
 
 RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
     helm plugin install https://github.com/futuresimple/helm-secrets --version ${HELM_SECRETS_VERSION}
-
-# Install deps
-RUN python3 -m pip install --upgrade pip
 
 # Install python library
 RUN python3 -m pip install --upgrade pip
