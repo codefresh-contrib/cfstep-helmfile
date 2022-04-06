@@ -17,6 +17,7 @@ RUN apk add --update \
     build-base \
     libc-dev \
     musl-dev \
+    python-devel \
     python3 && \
     rm -rf /var/cache/apk/*
 
