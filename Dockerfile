@@ -13,13 +13,21 @@ ARG PYTHON_VERSION
 RUN apk add --update \
     linux-headers \
     git \
+    gcc \
+    build-base \
+    libc-dev \
+    musl-dev \
+    python3-dev \
     python3 && \
     rm -rf /var/cache/apk/*
 
 # Install helmfile plugin deps
 
-RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
-    helm plugin install https://github.com/futuresimple/helm-secrets --version ${HELM_SECRETS_VERSION}
+RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION}
+# I have no idea why but that is need otherwise
+# diff plugin doesn't work
+RUN rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-diff
+RUN helm plugin install https://github.com/futuresimple/helm-secrets --version ${HELM_SECRETS_VERSION}
 
 # Install python library
 RUN python3 -m pip install --upgrade pip
