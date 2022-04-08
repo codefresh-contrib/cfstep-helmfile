@@ -25,8 +25,8 @@ RUN apk add --update \
 
 RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION}
 # I have no idea why but that is need otherwise
-# diff plugin doesn't work
-RUN rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-diff
+# diff and secrets plugin don't work
+RUN rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-diff /root/.helm/helm/plugins/https-github.com-futuresimple-helm-secrets
 RUN helm plugin install https://github.com/futuresimple/helm-secrets --version ${HELM_SECRETS_VERSION}
 
 # Install python library
