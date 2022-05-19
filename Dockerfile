@@ -21,7 +21,6 @@ RUN apk add --update \
     python3 \
     ca-certificates \
     curl \
-    apt-transport-https \
     gnupg && \
     rm -rf /var/cache/apk/*
 
