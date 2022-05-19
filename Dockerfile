@@ -45,7 +45,7 @@ RUN chmod 0755 /bin/helmfile
 # Install az cli
 #RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
 #RUN AZ_REPO=$(lsb_release -cs) && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-RUN curl -L https://aka.ms/InstallAzureCli | bash
+#RUN curl -L https://aka.ms/InstallAzureCli | bash
 
 LABEL helm="${HELM_VERSION}"
 LABEL helmfile="${HELMFILE_VERSION}"
