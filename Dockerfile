@@ -20,6 +20,7 @@ RUN apk add --update \
     python3-dev \
     python3 \
     ca-certificates \
+    libffi-dev \
     gnupg && \
     rm -rf /var/cache/apk/*
 
