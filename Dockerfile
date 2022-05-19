@@ -22,7 +22,6 @@ RUN apk add --update \
     ca-certificates \
     curl \
     apt-transport-https \
-    lsb-release \
     gnupg && \
     rm -rf /var/cache/apk/*
 
