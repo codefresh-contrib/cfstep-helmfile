@@ -18,7 +18,8 @@ RUN apk add --update \
     libc-dev \
     musl-dev \
     python3-dev \
-    python3 && \
+    python3 \
+    libffi-dev && \
     rm -rf /var/cache/apk/*
 
 # Install helmfile plugin deps
@@ -32,6 +33,7 @@ RUN rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-diff /root/.
 # Install python library
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install ruamel.yaml
+RUN python3 -m pip install azure-cli
 
 # Install helmfile
 
