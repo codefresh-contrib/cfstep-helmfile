@@ -35,6 +35,7 @@ RUN rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-diff /root/.
 # Install python library
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install ruamel.yaml
+RUN python3 -m pip install azure-cli
 
 # Install helmfile
 
@@ -42,11 +43,11 @@ ADD https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/he
 RUN chmod 0755 /bin/helmfile
 
 # Install az cli
-ADD curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
-ADD AZ_REPO=$(lsb_release -cs) && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-
-RUN apk add --update \
-    azure-cli
+#ADD curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+#ADD AZ_REPO=$(lsb_release -cs) && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+#
+#RUN apk add --update \
+#    azure-cli
 
 LABEL helm="${HELM_VERSION}"
 LABEL helmfile="${HELMFILE_VERSION}"
