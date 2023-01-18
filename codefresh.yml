@@ -20,6 +20,7 @@ steps:
 #          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
 #          - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
 #          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
 #      BuildingDockerImageHelm2170:
 #        title: Building Docker Image
 #        type: build
@@ -32,6 +33,7 @@ steps:
 #          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
 #          - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
 #          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
 #      BuildingDockerImageHelm3:
 #        title: Building Docker Image
 #        type: build
@@ -44,6 +46,7 @@ steps:
 #          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
 #          - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
 #          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
 #      BuildingDockerImageHelm303:
 #        title: Building Docker Image
 #        type: build
@@ -56,6 +59,7 @@ steps:
 #          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
 #          - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
 #          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
 #      BuildingDockerImageHelm311:
 #        title: Building Docker Image
 #        type: build
@@ -68,6 +72,7 @@ steps:
 #          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
 #          - HELM_DIFF_VERSION=3.1.1
 #          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
       BuildingDockerImageHelm390:
         title: Building Docker Image
         type: build
@@ -80,6 +85,7 @@ steps:
           - HELMFILE_VERSION=0.144.0
           - HELM_DIFF_VERSION=3.6.0
           - HELM_SECRETS_VERSION=4.2.2
+          - HELM_SECRETS_IMAGE=https://github.com/jkroepke/helm-secrets
   Push:
     type: parallel
     steps:

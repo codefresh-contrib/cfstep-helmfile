@@ -7,6 +7,7 @@ ARG HELMFILE_VERSION
 ARG HELM_DIFF_VERSION
 ARG HELM_SECRETS_VERSION
 ARG PYTHON_VERSION
+ARG HELM_SECRETS_IMAGE
 
 # Install required Alpine packages
 
@@ -19,7 +20,7 @@ RUN apk add --update \
 # Install helmfile plugin deps
 
 RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
-    helm plugin install https://github.com/jkroepke/helm-secrets --version ${HELM_SECRETS_VERSION}
+    helm plugin install ${HELM_SECRETS_IMAGE} --version ${HELM_SECRETS_VERSION}
 
 # Install helmfile
 
