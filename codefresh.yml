@@ -78,7 +78,7 @@ steps:
         build_arguments:
           - HELM_VERSION=3.9.0
           - HELMFILE_VERSION=0.144.0
-          - HELM_DIFF_VERSION=3.9.0
+          - HELM_DIFF_VERSION=3.6.0
           - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
   Push:
     type: parallel
