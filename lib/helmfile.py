@@ -17,7 +17,7 @@ def run_command(helmfile_command, working_directory):
 def main():
 
     # Command List Executed in Order Provided
-    
+
     commands = os.getenv('COMMANDS')
     working_directory = os.getenv('WORKING_DIRECTORY')
 
@@ -53,7 +53,7 @@ def main():
     delete_ps = os.getenv('DELETE_PS')
     destroy_ps = os.getenv('DESTROY_PS')
     test_ps = os.getenv('TEST_PS')
-    helm_version = env.get('HELM_VERSION', '2.0.0')
+    helm_version = os.getenv('HELM_VERSION', '2.0.0')
 
     if helm_version.startswith('2'):
         print("\033[93mCodefresh will discontinue support for Helm 2 on July 16 2021\033[0m")
@@ -72,11 +72,11 @@ def main():
         global_options.append("--state-values-set %s"%(state_values_set))
     if state_values_file:
         global_options.append("--state-values-file %s"%(state_values_file))
-    if quiet: 
+    if quiet:
         global_options.append("--quiet")
     if kube_context:
         global_options.append("--kube-context %s"%(kube_context))
-    if no_color: 
+    if no_color:
         global_options.append("--no-color")
     if log_level:
         global_options.append("--log-level %s"%(log_level))
@@ -86,11 +86,11 @@ def main():
         global_options.append("--selector %s"%(selector))
     if allow_no_matching_release:
         global_options.append("--allow-no-matching-release")
-    if interactive: 
+    if interactive:
         global_options.append("--interactive")
-    if helm_help: 
+    if helm_help:
         global_options.append("--help")
-    if version: 
+    if version:
         global_options.append("--version")
 
     global_options_list = ' '.join(global_options)
