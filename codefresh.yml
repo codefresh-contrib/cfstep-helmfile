@@ -47,32 +47,32 @@ steps:
           - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
           - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
           - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
-#      BuildingDockerImageHelm303:
-#        title: Building Docker Image
-#        type: build
-#        image_name: codefreshplugins/cfstep-helmfile
-#        working_directory: ./
-#        dockerfile: Dockerfile
-#        tag: build-3.0.3-${{HELMFILE_VERSION}}
-#        build_arguments:
-#          - HELM_VERSION=3.0.3
-#          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
-#          - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
-#          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
-#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
-#      BuildingDockerImageHelm311:
-#        title: Building Docker Image
-#        type: build
-#        image_name: codefreshplugins/cfstep-helmfile
-#        working_directory: ./
-#        dockerfile: Dockerfile
-#        tag: build-3.1.1-${{HELMFILE_VERSION}}
-#        build_arguments:
-#          - HELM_VERSION=3.1.1
-#          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
-#          - HELM_DIFF_VERSION=3.1.1
-#          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
-#          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
+      BuildingDockerImageHelm303:
+        title: Building Docker Image
+        type: build
+        image_name: codefreshplugins/cfstep-helmfile
+        working_directory: ./
+        dockerfile: Dockerfile
+        tag: build-3.0.3-${{HELMFILE_VERSION}}
+        build_arguments:
+          - HELM_VERSION=3.0.3
+          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
+          - HELM_DIFF_VERSION=${{HELM_DIFF_VERSION}}
+          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
+      BuildingDockerImageHelm311:
+        title: Building Docker Image
+        type: build
+        image_name: codefreshplugins/cfstep-helmfile
+        working_directory: ./
+        dockerfile: Dockerfile
+        tag: build-3.1.1-${{HELMFILE_VERSION}}
+        build_arguments:
+          - HELM_VERSION=3.1.1
+          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
+          - HELM_DIFF_VERSION=3.1.1
+          - HELM_SECRETS_VERSION=${{HELM_SECRETS_VERSION}}
+          - HELM_SECRETS_IMAGE=https://github.com/futuresimple/helm-secrets
       BuildingDockerImageHelm390:
         title: Building Docker Image
         type: build
@@ -82,7 +82,7 @@ steps:
         tag: build-3.9.0-${{HELMFILE_VERSION}}
         build_arguments:
           - HELM_VERSION=3.9.0
-          - HELMFILE_VERSION=0.144.0
+          - HELMFILE_VERSION=${{HELMFILE_VERSION}}
           - HELM_DIFF_VERSION=3.6.0
           - HELM_SECRETS_VERSION=4.2.2
           - HELM_SECRETS_IMAGE=https://github.com/jkroepke/helm-secrets
@@ -122,28 +122,28 @@ steps:
           branch:
             only:
               - master
-#      PushingHelm303ToDockerRegistry:
-#        title: Pushing to Docker Registry
-#        type: push
-#        candidate: ${{BuildingDockerImageHelm303}}
-#        tags:
-#          - 3.0.3-${{HELMFILE_VERSION}}
-#        registry: dockerhub
-#        when:
-#          branch:
-#            only:
-#              - master
-#      PushingHelm311ToDockerRegistry:
-#        title: Pushing to Docker Registry
-#        type: push
-#        candidate: ${{BuildingDockerImageHelm311}}
-#        tags:
-#          - 3.1.1-${{HELMFILE_VERSION}}
-#        registry: dockerhub
-#        when:
-#          branch:
-#            only:
-#              - master
+      PushingHelm303ToDockerRegistry:
+        title: Pushing to Docker Registry
+        type: push
+        candidate: ${{BuildingDockerImageHelm303}}
+        tags:
+          - 3.0.3-${{HELMFILE_VERSION}}
+        registry: dockerhub
+        when:
+          branch:
+            only:
+              - master
+      PushingHelm311ToDockerRegistry:
+        title: Pushing to Docker Registry
+        type: push
+        candidate: ${{BuildingDockerImageHelm311}}
+        tags:
+          - 3.1.1-${{HELMFILE_VERSION}}
+        registry: dockerhub
+        when:
+          branch:
+            only:
+              - master
       PushingHelm390ToDockerRegistry:
         title: Pushing to Docker Registry
         type: push
