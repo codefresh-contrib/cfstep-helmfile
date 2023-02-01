@@ -19,8 +19,10 @@ RUN apk add --update \
 
 # Install helmfile plugin deps
 
-RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
-    helm plugin install ${HELM_SECRETS_IMAGE} --version ${HELM_SECRETS_VERSION}
+RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION}
+RUN rm -rf /root/.helm/helm/plugins/https-github.com*
+RUN helm plugin install ${HELM_SECRETS_IMAGE} --version ${HELM_SECRETS_VERSION}
+RUN rm -rf /root/.helm/helm/plugins/https-github.com*
 
 # Install helmfile
 
