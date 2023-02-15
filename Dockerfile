@@ -15,12 +15,17 @@ RUN apk add --update \
     linux-headers \
     git \
     python3 && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* \
+    rm -rf /root/.helm/helm/plugins/helm-diff
 
 # Install helmfile plugin deps
 
 RUN helm plugin install https://github.com/databus23/helm-diff --version ${HELM_DIFF_VERSION} && \
-    helm plugin install ${HELM_SECRETS_IMAGE} --version ${HELM_SECRETS_VERSION}
+    helm plugin install ${HELM_SECRETS_IMAGE} --version ${HELM_SECRETS_VERSION} && \
+    bash -c 'if [[ "${HELM_VERSION}" > "3.3.1" ]]; then \
+    rm -rf /root/.helm/helm/plugins/https-github.com-databus23-helm-diff; \
+    rm -rf /root/.helm/helm/plugins/https-github.com-futuresimple-helm-secrets; \
+    else echo "no need to remove unnecessary directories in the helm plugins directory"; fi'
 
 # Install helmfile
 
