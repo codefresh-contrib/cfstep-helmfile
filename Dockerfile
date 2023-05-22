@@ -20,6 +20,9 @@ RUN apk add --update \
     python3-dev \
     python3 \
     libffi-dev && \
+    ca-certificates \
+    libffi-dev \
+    gnupg && \
     rm -rf /var/cache/apk/*
 
 # Install helmfile plugin deps
