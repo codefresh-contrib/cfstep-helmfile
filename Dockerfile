@@ -35,8 +35,7 @@ RUN python3 -m pip install ruamel.yaml
 RUN python3 -m pip install azure-cli
 
 # Install helmfile
-
-ADD https://github.com/helmfile/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 /bin/helmfile
+ADD https://github.com/helmfile/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_${HELMFILE_VERSION}_linux_amd64 /bin/helmfile
 RUN chmod 0755 /bin/helmfile
 
 LABEL helm="${HELM_VERSION}"
